@@ -15,7 +15,7 @@
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.8
         Device            :  PIC16F1718
-        Driver Version    :  1.0.0
+        Driver Version    :  2.0.0
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.36 and above or later
         MPLAB             :  MPLAB X 6.00
@@ -60,6 +60,10 @@ typedef enum {
     SPI_DEFAULT
 } spi_modes_t;
 
+typedef void (*spiInterruptHandler_t)(void);
+
+void (*MSSP_InterruptHandler)(void);
+
 void SPI_Initialize(void);
 bool SPI_Open(spi_modes_t spiUniqueConfiguration);
 void SPI_Close(void);
@@ -69,5 +73,7 @@ void SPI_WriteBlock(void *block, size_t blockSize);
 void SPI_ReadBlock(void *block, size_t blockSize);
 void SPI_WriteByte(uint8_t byte);
 uint8_t SPI_ReadByte(void);
+void SPI_Isr(void);
+void SPI_SetInterruptHandler(spiInterruptHandler_t handler);
 
 #endif //SPI_H

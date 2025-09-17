@@ -15,7 +15,7 @@
     Generation Information :
         Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.8
         Device            :  PIC16F1718
-        Driver Version    :  1.0.0
+        Driver Version    :  2.0.0
     The generated drivers are tested against the following:
         Compiler          :  XC8 2.36 and above or later
         MPLAB             :  MPLAB X 6.00
@@ -48,7 +48,7 @@
 #include <xc.h>
 
 typedef struct { 
-    uint8_t con1; 
+    uint8_t con1;
     uint8_t stat;
     uint8_t add;
     uint8_t operation;
@@ -66,10 +66,12 @@ void SPI_Initialize(void)
     SSPDATPPS = 20;
     RC3PPS    = 16;
     RC5PPS    = 17;
-    //SPI setup
+    // SPI setup
     SSP1STAT = 0x40;
     SSP1CON1 = 0x00;
-    SSP1ADD = 0x01;
+    SSP1ADD  = 0x01;
+    PIE1bits.SSP1IE = 1;
+    SPI_SetInterruptHandler(SPI_Isr);
     TRISCbits.TRISC3 = 0;
     SSP1CON1bits.SSPEN = 0;
 }
@@ -81,7 +83,7 @@ bool SPI_Open(spi_modes_t spiUniqueConfiguration)
         SSP1STAT = spi_configuration[spiUniqueConfiguration].stat;
         SSP1CON1 = spi_configuration[spiUniqueConfiguration].con1;
         SSP1CON2 = 0x00;
-        SSP1ADD  = spi_configuration[spiUniqueConfiguration].add;
+        SSP1ADD = spi_configuration[spiUniqueConfiguration].add;
         TRISCbits.TRISC3 = spi_configuration[spiUniqueConfiguration].operation;
         SSP1CON1bits.SSPEN = 1;
         return true;
@@ -141,4 +143,19 @@ void SPI_WriteByte(uint8_t byte)
 uint8_t SPI_ReadByte(void)
 {
     return SSP1BUF;
+}
+
+void SPI_Isr(void)
+{
+    if(PIR1bits.SSP1IF == 1){
+        if(MSSP_InterruptHandler){
+            MSSP_InterruptHandler();
+        }
+        PIR1bits.SSP1IF= 0;
+    }
+}
+
+void SPI_SetInterruptHandler(spiInterruptHandler_t handler)
+{
+    MSSP_InterruptHandler = handler;
 }

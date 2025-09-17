@@ -180,7 +180,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="eusartInterrupts"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="systemClockValue"/>
@@ -188,7 +188,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="templateNameValue"/>
-         <value>eusart_noninterrupt</value>
+         <value>eusart_interrupt</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="EUSART" name="useStdio"/>
@@ -408,7 +408,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="RCI" settingAlias="flag"/>
@@ -464,7 +464,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="TXI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="EUSART" registerAlias="TXI" settingAlias="flag"/>
@@ -804,7 +804,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="enableSpiInterrupt"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="foscClockValue"/>
@@ -844,7 +844,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="isInterruptDriven"/>
-         <value>false</value>
+         <value>true</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="MSSP" name="msspMode"/>
@@ -1232,7 +1232,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="BCLI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="BCLI" settingAlias="flag"/>
@@ -1336,7 +1336,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="SSPI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="MSSP" registerAlias="SSPI" settingAlias="flag"/>
@@ -4852,7 +4852,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCI" settingAlias="enable"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="IOCI" settingAlias="flag"/>
@@ -5870,11 +5870,19 @@
       </entry>
       <entry>
          <file>mcc_generated_files/eusart.c</file>
-         <hash>dc2603ef05b5f40e4b85695972d9926fefd01be6a0ae8717660150eb9ca2dae6</hash>
+         <hash>ee4fb7ee0709b50ccb418c924724f38eb7902264362378579251e0d4d7e394c3</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/eusart.h</file>
-         <hash>2da3bcb872dce8d631582e04d14afbc49bdf7e33eab2a4aa1019bd7831fa37da</hash>
+         <hash>c2210522bcf88286f50bad73e61853854c882fc7a32c89ebbf955c3a9a31e087</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.c</file>
+         <hash>e754b0b7651ecd59aea5717b59f1708d1d68d20ff92ddf867d6dc30b6c253d2c</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.h</file>
+         <hash>f941688a4a969acb976718412c1f51e94d3e8244cbda0a31c87be4c9469c485d</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>
@@ -5882,11 +5890,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.h</file>
-         <hash>76d33b3635f2ad5045a2c5c29d8502086bdc9abf023f0055f90e99482bbbf551</hash>
+         <hash>f6952a636d1180fb82adc4b021fc847280506c5149bbd65e8345d3c9bc2eda48</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/pin_manager.c</file>
-         <hash>8eb157490bc58632aa8398c5ce6f23e9b89ab272a35a83c16e9c7e3fc510b60c</hash>
+         <hash>77cc2ea9eac53ce8111f6e27d78061e7af60170d339cc529c8417fd4cbe5e700</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/pin_manager.h</file>
@@ -5894,11 +5902,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files/spi.c</file>
-         <hash>80bb88b6028822f22e3a9e15ed187c25b50feb11e92ed69b49b5f44e12874a56</hash>
+         <hash>a9d8cd147d3739606295dc99b272aed568a0b95e4dd00ee852422e3870454f27</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/spi.h</file>
-         <hash>d11427942bbbbdaff326ee536144f060092736667e317776c3cff4b9f13a5a32</hash>
+         <hash>3e9d9563e9ce320a26ecb167a8178eab6a6c5f0a60cb6e66da3c9d3666c99b60</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

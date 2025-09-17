@@ -55,10 +55,10 @@ void main(void)
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -69,6 +69,15 @@ void main(void)
     while (1)
     {
         // Add your application code
+        int a = 2022;
+        float b = 0.535;
+        char c[] = "Hello World";
+        printf("a = %d\r\n", a);
+        printf("b = %f\r\n", b);
+        printf("c = %s\r\n", c);
+        
+        EUSART_Write('a');
+        __delay_ms(10);
     }
 }
 /**
