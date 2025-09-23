@@ -65,19 +65,16 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
+        SSP1CONbits.SSPEN=1;
 
     while (1)
     {
         // Add your application code
-        int a = 2022;
-        float b = 0.535;
-        char c[] = "Hello World";
-        printf("a = %d\r\n", a);
-        printf("b = %f\r\n", b);
-        printf("c = %s\r\n", c);
-        
-        EUSART_Write('a');
-        __delay_ms(10);
+        while (1)
+        {
+        SPI_WriteByte('1');
+        __delay_ms(1);
+        }
     }
 }
 /**
